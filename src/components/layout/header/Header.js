@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <header css={headerStyle}>
       <Navber />
-      asdfsadf
     </header>
   );
 }
@@ -17,5 +16,5 @@ const headerStyle = (isPoint) => css`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #cf1313;
+  background-color: #fff;
 `;

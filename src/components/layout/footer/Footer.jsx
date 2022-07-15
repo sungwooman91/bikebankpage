@@ -49,14 +49,14 @@ const Footer = () => {
             <FooterLink href="#">Kakao </FooterLink>
             <FooterLink href="#">Blog </FooterLink>
           </Column>
-          <FirmName>Bikebank</FirmName>
-          <Address>
-            바이크뱅크 주식회사 | 사업자 등록번호 : 171-86-01585 | 대구광역시
-            달서구 성서공단로 11길 62, 5층 | 고객센터 1522-9008
-          </Address>
+          <Column>
+            <FirmName>Bikebank</FirmName>
+            <Address>
+              바이크뱅크 주식회사 | 사업자 등록번호 : 171-86-01585 | 대구광역시
+              달서구 성서공단로 11길 62, 5층 | 고객센터 1522-9008
+            </Address>
+          </Column>
         </Row>
-
-        <Column></Column>
       </Container>
     </Box>
   );

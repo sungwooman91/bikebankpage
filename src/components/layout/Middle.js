@@ -8,11 +8,20 @@ import GuaranteeContext from "./contents/GuaranteeContext";
 import CheckpointContext from "./contents/CheckpointContext";
 
 const MiddleDiv = styled.div`
+  width: 90%;
+  /* display: flex; */
+  justify-content: center;
   div {
     /* height: 500px; */
     // 영역 표시
-    background-color: yellow;
+    /* background-color: green; */
+    width: 100%;
+
+    /* padding-top: 100px; */
+    padding-bottom: 20px;
+    /* display: flex; */
   }
+
   .MainBack {
     // 영역 표시
     background-color: skyblue;
@@ -25,8 +34,7 @@ const Middle = () => {
       <div>
         <VisualWeb />
       </div>
-      <div className="MainBack" id="solution">
-        {/* <h2>SOLUTION</h2> */}
+      <div id="solution">
         <MainSolution />
       </div>
       <div id="rent">

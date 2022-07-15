@@ -5,11 +5,12 @@ import Side from "./sidebar/Side";
 import Middle from "./Middle";
 
 const ContentDiv = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
+  justify-content: center;
 
   // 영역 확인
-  background-color: #74992e;
+  /* background-color: #74992e; */
 `;
 
 const Mainpage = () => {

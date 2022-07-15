@@ -1,17 +1,67 @@
 import React from "react";
 import styled from "styled-components";
+import backimager from "./main_rent.png";
 
-// eslint-disable-next-line
-const rentDiv = styled.div`
-  div {
-    height: 10%;
+const RentDiv = styled.div`
+  padding-top: 70px;
+
+  .title {
+    color: #ffce30;
+  }
+  .text {
+    margin-top: 20px;
+    font-size: 38px;
+    line-height: 1.37;
+    color: #000;
+    letter-spacing: -1.9px;
+  }
+  .text > span {
+    font-weight: bold;
+  }
+
+  .text_02 {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #5d5d5d;
+    padding-top: 21px;
+  }
+  .rent_count {
+    overflow: hidden;
+    display: flex;
+  }
+  .rent_count ul {
+    list-style: none;
+  }
+
+  .rent_count li {
+    float: left;
+    width: 33.3%;
+    font-weight: bold;
+  }
+  .rent_count li > .c_title {
+    font-size: 24px;
+    letter-spacing: -0.6px;
+    font-weight: 500;
+    color: #ffc400;
+    line-height: 36px;
+  }
+  .rent_count li > .c_num {
+    padding-top: 10px;
+    font-size: 70px;
+    letter-spacing: -1.75px;
+    color: #000;
+    font-family: "sf" !important;
+  }
+  .main_rent_img {
+    padding: 51px 0 20px 0;
   }
 `;
 
 const RentPage = () => {
   return (
-    <rentDiv>
-      <h2>RENT</h2>
+    <RentDiv>
+      <h2 className="title">RENT</h2>
       <p className="text">
         국내 이륜차 렌트 점유율 1위 업체로서
         <br />
@@ -23,7 +73,7 @@ const RentPage = () => {
         <br />
         어려운 오토바이 관리를 바이크뱅크에서 편하게 이용하세요.
       </p>
-      {/* <img src="/main_rent.png" className="main_rent_img" /> */}
+      <img src={backimager} className="main_rent_img" alt="imgtitle" />
       <ul class="rent_count">
         <li>
           <p class="c_title">운영도시</p>
@@ -38,7 +88,7 @@ const RentPage = () => {
           <p class="c_num">8000 +</p>
         </li>
       </ul>
-    </rentDiv>
+    </RentDiv>
   );
 };
 

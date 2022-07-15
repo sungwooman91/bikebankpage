@@ -18,7 +18,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 `;
 
@@ -33,6 +33,7 @@ export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-gap: 5px;
+  /* position: absolute; */
 
   @media all and (min-width: 360px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -61,9 +62,9 @@ export const FirmName = styled.h1`
   position: absolute;
   width: 127px;
   height: 19px;
-  top: 380px;
+  top: 300px;
   left: 50%;
-  margin-left: -00px;
+  margin-left: -700px;
   font-size: 0px;
   background-image: url(${LogoSrc});
   background-repeat: no-repeat;
@@ -71,8 +72,8 @@ export const FirmName = styled.h1`
 export const Address = styled.address`
   color: #fff;
   position: absolute;
-  top: 380px;
+  top: 300px;
   right: 50%;
-  margin-right: -1000px;
+  margin-right: -600px;
   font-size: 15px;
 `;

@@ -1,26 +1,44 @@
 import React from "react";
 import styled from "styled-components";
-
+import backimager from "./main_rent.png";
 // eslint-disable-next-line
 const VisualDiv = styled.div`
-  div {
-    /* height: 100px; */
-    /* background-color: black; */
+  margin-top: 40px;
+
+  .visual_wrap {
+    height: 600px;
+    /* height: 970px; */
+    background: url(${backimager}) no-repeat;
+    background-position: 50% 50%;
+    background-size: auto 100%;
   }
-  div p {
-    font-size: 20px;
+  div p,
+  span {
+    color: #fff;
+    font-size: 40px;
   }
 
-  div .context {
-    font-size: 40px;
+  .visual_wrap button {
+    width: 228px;
+    height: 65px;
+    border-radius: 33px;
+    background-color: #ffce30;
+    /* position: absolute; */
+    /* bottom: 151px; */
+    left: 50%;
+    /* margin-left: -540px; */
+    margin-top: 300px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
   }
 `;
 
 const VisualWeb = () => {
   return (
     <VisualDiv>
-      <div>
-        <p className="context">
+      <div className="visual_wrap">
+        <p>
           No.1
           <br />
           비즈니스 이륜차 솔루션
@@ -29,7 +47,7 @@ const VisualWeb = () => {
         <p>
           <span>바이크뱅크</span>
         </p>
-        <button type="button" onclick="location.href='rent.html'">
+        <button type="button" onclick="#">
           렌트상품 알아보기
         </button>
       </div>

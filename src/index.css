@@ -62,11 +62,16 @@ p {
 Navbar
 ===============
 */
-nav {
-  /* position: ; */
-  background-color: black;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: #fff;
   box-shadow: var(--light-shadow);
 }
+
 .nav-header {
   /* display: flex; */
   align-items: center;

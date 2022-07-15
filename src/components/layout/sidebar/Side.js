@@ -8,14 +8,17 @@ const SideDiv = styled.div`
   right: 5rem;
   margin-top: 70px;
   // 영역 확인
-  background-color: #f00;
+  background-color: #fff;
+
   div {
     display: flex;
     flex-direction: column;
   }
 
-  span {
-    font-size: 15px;
+  p {
+    color: #ffce30;
+    font-size: 20px;
+    font-weight: bold;
   }
 `;
 
@@ -24,19 +27,19 @@ const Side = () => {
     <SideDiv>
       <div>
         <Link to="solution" spy={true} smooth={true}>
-          <span>SOLUTION</span>
+          <p>SOLUTION</p>
         </Link>
         <Link to="rent" spy={true} smooth={true}>
-          <span>RENT</span>
+          <p>RENT</p>
         </Link>
         <Link to="partners" spy={true} smooth={true}>
-          <span>PARTNERS</span>
+          <p>PARTNERS</p>
         </Link>
         <Link to="check_point" spy={true} smooth={true}>
-          <span>CHECK POINT</span>
+          <p>CHECK POINT</p>
         </Link>
         <Link to="guarantee" spy={true} smooth={true}>
-          <span>GUARANTEE</span>
+          <p>GUARANTEE</p>
         </Link>
       </div>
     </SideDiv>
