@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import check_bg from "./check_bg.jpg";
+import check_bg from "./image/check_bg.jpg";
 
 const CheckpointeDiv = styled.div`
   background: url(${check_bg});
@@ -41,12 +41,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
 export const Row = styled.div`
   display: grid;
+  flex-direction: column;
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-gap: 5px;
 `;
@@ -103,23 +104,6 @@ const CheckpointContext = () => {
           </Row>
         </Container>
       </Box>
-      {/* <ul class="check_list">
-        <li class="check_up">
-          <p class="num">01.</p>
-          <p class="title">보험보장</p>
-          <p class="text">합리적인 가격과 폭 넓은 보장 범위</p>
-        </li>
-        <li class="check_up">
-          <p class="num">02.</p>
-          <p class="title">관리편의성</p>
-          <p class="text">이륜차에 특화된 관리 서비스</p>
-        </li>
-        <li class="check_up">
-          <p class="num">03.</p>
-          <p class="title">렌트비용</p>
-          <p class="text">낮은 비용으로 사업 부담 감소</p>
-        </li>
-      </ul> */}
     </CheckpointeDiv>
   );
 };

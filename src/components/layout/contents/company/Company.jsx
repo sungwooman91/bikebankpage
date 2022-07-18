@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import backimager from "./image/main_rent.png";
+import backimager from "../image/main_rent.png";
 // eslint-disable-next-line
 const VisualDiv = styled.div`
   margin-top: 40px;
@@ -14,7 +14,7 @@ const VisualDiv = styled.div`
   }
   div p,
   span {
-    color: #fff;
+    color: #0ff;
     font-size: 40px;
   }
 
@@ -34,7 +34,7 @@ const VisualDiv = styled.div`
   }
 `;
 
-const VisualWeb = () => {
+const Company = () => {
   return (
     <VisualDiv>
       <div className="visual_wrap">
@@ -55,4 +55,4 @@ const VisualWeb = () => {
   );
 };
 
-export default VisualWeb;
+export default Company;

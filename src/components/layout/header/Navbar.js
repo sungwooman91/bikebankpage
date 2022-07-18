@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
-// import logo from '../../../Images/footer_logo.png'
+// import logo from "../../../Images/footer_logo.png";
 
 export const links = [
   {
@@ -59,7 +59,7 @@ const Navber = () => {
     <header className="nav_container">
       <div className="nav-center">
         <div className="nav-header">
-          {/* <img src={logo} className='logo' alt='logo' /> */}
+          {/* <img src={logo} className="logo" alt="logo" /> */}
           <button className="nav-toggle" onClick={toggleLinks}>
             <FaBars />
           </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import backimager from "./main_rent.png";
+import backimager from "./image/main_rent.png";
 
 const RentDiv = styled.div`
   padding-top: 70px;

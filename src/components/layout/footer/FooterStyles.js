@@ -33,11 +33,18 @@ export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-gap: 5px;
-  /* position: absolute; */
 
   @media all and (min-width: 360px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
+`;
+
+export const Heading = styled.p`
+  color: #fff;
+  margin-bottom: 30px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #999;
 `;
 
 export const FooterLink = styled.a`
@@ -48,14 +55,6 @@ export const FooterLink = styled.a`
     color: orange;
     transition: 200ms ease-in;
   }
-`;
-
-export const Heading = styled.p`
-  color: #fff;
-  margin-bottom: 30px;
-  font-weight: bold;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #999;
 `;
 
 export const FirmName = styled.h1`

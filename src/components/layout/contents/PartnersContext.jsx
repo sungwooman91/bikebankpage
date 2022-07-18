@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import partnerimg from "./parners_img.png";
+import partnerimg from "./image/parners_img.png";
 
 const PartnerDiv = styled.div`
-  padding-top: 100px;
-  padding-bottom: 100px;
-
   div {
     height: 500px;
   }

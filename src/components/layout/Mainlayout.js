@@ -1,9 +1,11 @@
-import { css } from "@emotion/react";
 import Footer from "./footer/Footer";
 import Mainpage from "./Mainpage";
 import styled from "styled-components";
 // import Header from "./header/Header";
 import Navber from "./header/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Company from "./contents/company/Company";
+import Customer from "./contents/customer/customer";
 
 const MainDiv = styled.div`
   margin: 3rem 5rem;
@@ -14,21 +16,23 @@ const MainDiv = styled.div`
 
 export const Mainlayout = (props) => {
   return (
-    <div className="main_wrap" css={wrapStyle}>
-      <Navber />
-      <MainDiv>
-        <Mainpage />
-      </MainDiv>
-      <Footer />
-    </div>
+    <>
+      <BrowserRouter>
+        <Navber />
+        <MainDiv>
+          <Routes>
+            <Route path="/" element={<Mainpage />} />
+            <Route path="/company" element={<Company />} />
+            <Route path="/rent" element={<Company />} />
+            <Route path="/bike" element={<Company />} />
+            <Route path="/customer" element={<Customer />} />
+            <Route path="/recruit" element={<Company />} />
+            {/* 블로그 외부링크로 보내는 처리하기 */}
+            {/* <Route path="/blog"/> */}
+          </Routes>
+        </MainDiv>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 };
-
-const wrapStyle = css`
-  .text {
-    background-color: #f5f5f5;
-  }
-  .coloredText {
-    background-color: #ffb600;
-  }
-`;
