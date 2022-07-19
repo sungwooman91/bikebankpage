@@ -23,7 +23,7 @@ export const Mainlayout = (props) => {
           <Routes>
             <Route path="/" element={<Mainpage />} />
             <Route path="/company" element={<Company />} />
-            <Route path="/rent" element={<Company />} />
+            <Route path="/rent" element={<Mainpage />} />
             <Route path="/bike" element={<Company />} />
             <Route path="/customer" element={<Customer />} />
             <Route path="/recruit" element={<Company />} />

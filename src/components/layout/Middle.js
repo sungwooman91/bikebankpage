@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import RentPage from "./contents/RentContext";
 import VisualWeb from "./contents/VisualWeb";
-import MainSolution from "./contents/MainSolution";
+import MainSolution from "./contents/MainSolutionContext";
 import Partners from "./contents/PartnersContext";
 import GuaranteeContext from "./contents/GuaranteeContext";
 import CheckpointContext from "./contents/CheckpointContext";
@@ -24,7 +24,7 @@ const MiddleDiv = styled.div`
 
   .MainBack {
     // 영역 표시
-    background-color: skyblue;
+    /* background-color: skyblue; */
   }
 `;
 
