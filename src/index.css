@@ -70,6 +70,7 @@ Navbar
   width: 100%;
   background-color: #fff;
   box-shadow: var(--light-shadow);
+  z-index: 1;
 }
 
 .nav-header {

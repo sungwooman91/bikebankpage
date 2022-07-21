@@ -12,12 +12,15 @@ const VisualDiv = styled.div`
     background-position: 50% 50%;
     background-size: auto 100%;
   }
-  div p,
-  span {
+  .visual_wrap p {
     color: #fff;
-    font-size: 40px;
+    font-size: 60px;
+    line-height: 75px;
+    margin: 0 auto;
   }
-
+  .visual_wrap span {
+    font-weight: bold;
+  }
   .visual_wrap button {
     width: 228px;
     height: 65px;

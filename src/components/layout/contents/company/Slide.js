@@ -1,47 +1,47 @@
-// import { useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-// import { Card, Button } from "react-bootstrap";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { dataDigitalBestSeller } from "./data";
 
-const InfraShow = styled(Slider)`
-  /* background-color: #0f0; */
+const Container = styled.div`
+  height: 600px;
+  border-radius: 15px;
+  /* margin: 0 auto; */
+  box-shadow: 5px 0 30px 0 rgb(125 125 125 / 16%);
+  /* position: absolute; */
+`;
 
+const InfraShow = styled(Slider)`
   .slick-slide div {
     /* background-color: #0f0; */
     white-space: pre-wrap;
-    margin-top: 40px;
+    margin-top: 30px;
   }
+`;
 
-  .infra_list {
-    /* text-align: center; */
-    /* background-color: #ff0; */
-    /* display: block; */
-  }
-  .infra_top {
-    text-align: center;
-    /* background-color: #f00; */
-  }
-
+const InfraTop = styled.div`
+  text-align: center;
+  /* background-color: #f00; */
   .infra_pic {
-    /* display: block; */
     margin: auto;
-    /* background-color: #f0f; */
   }
-  .infra_bottom {
-    text-align: center;
-  }
-  .infra_bottom p {
+`;
+const InfraBot = styled.div`
+  /* display: block; */
+  text-align: center;
+  /* background-color: #f0f; */
+
+  p {
     font-size: 18px;
     color: #5d5d5d;
     line-height: 28px;
     vertical-align: baseline;
   }
-  .infra_bottom h3 {
+
+  h3 {
     font-size: 24px;
     line-height: 36px;
     letter-spacing: -0.6px;
@@ -62,21 +62,21 @@ const Slide = () => {
   };
 
   return (
-    <div className="container">
+    <Container>
       <InfraShow {...settings}>
         {dataDigitalBestSeller.map((item) => (
           <div className="infra_list">
-            <div className="infra_top">
+            <InfraTop>
               <img src={item.img} alt={item.title} className="infra_pic" />
-            </div>
-            <div className="infra_bottom">
+            </InfraTop>
+            <InfraBot>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-            </div>
+            </InfraBot>
           </div>
         ))}
       </InfraShow>
-    </div>
+    </Container>
   );
 };
 

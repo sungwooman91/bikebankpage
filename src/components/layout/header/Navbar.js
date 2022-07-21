@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
-// import logo from "../../../Images/footer_logo.png";
 import { links } from "./links.js";
 
 const Navber = () => {
