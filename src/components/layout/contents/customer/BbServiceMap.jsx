@@ -1,10 +1,9 @@
 /*global kakao */
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import markImageBb from "../image/icon_marker_bikebank.png";
-import { DataContext, ServiceStatusContext } from "../../../common/DataContext";
-import { useLocation } from "react-router-dom";
+// import { DataContext, ServiceStatusContext } from "../../../common/DataContext";
 import SelectBox from "./SelectBox";
 import BbServiceStore from "./BbServiceStore";
 
@@ -102,7 +101,6 @@ const MapkakaoWarp = styled.div`
 
 const BbServiceMap = () => {
   const { kakao } = window; // eslint-disable-line no-unused-vars
-  const location = useLocation();
   const [showMap, setShowMap] = useState(null);
 
   // 셀렉박스 상태값 가져오기 지도구역
@@ -119,7 +117,7 @@ const BbServiceMap = () => {
 
   useEffect(() => {
     mapSetup();
-  }, [location]);
+  }, []);
 
   function mapSetup() {
     // console.log("지도 그리는중...");
@@ -135,35 +133,33 @@ const BbServiceMap = () => {
     const control = new kakao.maps.ZoomControl();
     // Zoom 컨트롤러 생성
     map.addControl(control, kakao.maps.ControlPosition.TOPRIGHT);
+
+
+    //마커 이미지 설정
+    const imageSrc = markImageBb,
+      imageSize = new kakao.maps.Size(26, 41);
+    // 본사 마커 생성
+    const getMarkerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+    const mMarker = new kakao.maps.Marker({
+      position: homePosition,
+      title: headOfficeInfo.bp_full_name,
+      image: getMarkerImage,
+      zIndex: 1,
+    });
+    mMarker.setMap(map);
+
+    // 마커 클릭이벤트 리스너
+    kakao.maps.event.addListener(mMarker, "click", () => {
+      document.getElementById("storename").innerHTML =
+        headOfficeInfo.bp_full_name;
+      document.getElementById("corp_tel").innerHTML = headOfficeInfo.corp_tel;
+      document.getElementById("corp_addr").innerHTML =
+        headOfficeInfo.corp_address;
+      document.getElementById("corp_hours").innerHTML =
+        headOfficeInfo.business_hours;
+    });
     setShowMap(map);
   }
-
-  //마커 이미지 설정
-  const imageSrc = markImageBb,
-    imageSize = new kakao.maps.Size(26, 41),
-    homePosition = new kakao.maps.LatLng(35.8404138, 128.4891459);
-  // 본사 마커 생성
-  const getMarkerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-  const mMarker = new kakao.maps.Marker({
-    position: homePosition,
-    title: headOfficeInfo.bp_full_name,
-    image: getMarkerImage,
-    zIndex: 1,
-  });
-
-  mMarker.setMap(showMap);
-
-  // 마커 클릭이벤트 리스너
-  kakao.maps.event.addListener(mMarker, "click", () => {
-    document.getElementById("storename").innerHTML =
-      headOfficeInfo.bp_full_name;
-    document.getElementById("corp_tel").innerHTML = headOfficeInfo.corp_tel;
-    document.getElementById("corp_addr").innerHTML =
-      headOfficeInfo.corp_address;
-    document.getElementById("corp_hours").innerHTML =
-      headOfficeInfo.business_hours;
-  });
-
   return (
     <>
       <CustomerMap className="customer_map">
