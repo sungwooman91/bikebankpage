@@ -5,13 +5,6 @@ import Section from "../../../common/Section";
 // import backimager from "../image/main_rent.png";
 import Slide from "../company/Slide";
 
-const RentWrap = styled.div`
-  width: 80%;
-  /* display: flex; */
-  justify-content: center;
-  /* position: relative; */
-`;
-
 const SectionComponent = styled.div`
   width: 1194px;
   margin: 0 auto;
@@ -20,7 +13,7 @@ const SectionComponent = styled.div`
 
 const Rent = () => {
   return (
-    <RentWrap>
+    <>
       <SectionComponent>
         <Section
           id="01"
@@ -49,7 +42,7 @@ const Rent = () => {
       <SectionComponent>
         <Section id="04" subtitle="렌트차 서비스 안내"></Section>
       </SectionComponent>
-    </RentWrap>
+    </>
   );
 };
 

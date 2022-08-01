@@ -1,25 +1,38 @@
 import React from "react";
-// import { Route } from "react-router-dom";
-
 import styled from "styled-components";
 
-import Side from "./sidebar/Side";
-import Middle from "./Middle";
-//import { Link } from "react-scroll";
-// import Company from "./contents/company/Company";
+// import Side from "./sidebar/Side";
+import VisualWeb from "./contents/home/VisualWeb";
+import MainSolution from "./contents/home/MainSolutionContext";
+import RentPage from "./contents/home/RentContext";
+import Partners from "./contents/home/PartnersContext";
+import CheckpointContext from "./contents/home/CheckpointContext";
+import GuaranteeContext from "./contents/home/GuaranteeContext";
+import GuaranteeContextArea from "./contents/home/GuaranteeContextArea";
+import GuaranteeContextPrice from "./contents/home/GuaranteeContextPrice";
 
 const ContentDiv = styled.div`
-  width: 80%;
-  display: flex;
+  /* width: 100%; */
+  display: block;
+  margin: 3rem 3rem;
   justify-content: center;
 `;
 
 function Mainpage() {
   return (
-    <ContentDiv>
-      <Middle />
-      <Side />
-    </ContentDiv>
+    <>
+      <VisualWeb />
+      <ContentDiv className="homeContent_wrap">
+        <MainSolution />
+        <RentPage />
+        <Partners />
+        <CheckpointContext />
+        <GuaranteeContext />
+        <GuaranteeContextArea />
+        <GuaranteeContextPrice />
+        {/* <Side /> */}
+      </ContentDiv>
+    </>
   );
 }
 

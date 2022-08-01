@@ -7,6 +7,8 @@ const SectionNum = styled.p`
   padding: 0px 0 42px 0;
   font-weight: bold;
   font-family: "sf" !important;
+  width: 1194px;
+  margin: 0 auto;
 `;
 
 const SectionTitle = styled.p`
@@ -14,6 +16,9 @@ const SectionTitle = styled.p`
   font-size: 38px;
   line-height: 52px;
   letter-spacing: -0.95px;
+  width: 1194px;
+  margin: 0 auto;
+  font-weight: bold;
 
   p {
     white-space: pre-wrap;
@@ -25,16 +30,17 @@ const SectionTitle = styled.p`
 `;
 
 const SectionContext = styled.p`
-  padding-bottom: 50px;
+  padding-bottom: 70px;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: -0/5px;
   color: #5d5d5d;
-  white-space: pre-wrap;
+  width: 1194px;
+  margin: 0 auto;
 `;
 
 function Section(props) {
-  const { id, title, subtitle, context, otherDiv } = props;
+  const { id, title, subtitle, context } = props;
   return (
     <>
       <SectionNum>{id}</SectionNum>
@@ -44,7 +50,6 @@ function Section(props) {
         <span>{subtitle}</span>
       </SectionTitle>
       <SectionContext>{context}</SectionContext>
-      <div>{otherDiv}</div>
     </>
   );
 }

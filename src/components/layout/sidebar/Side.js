@@ -8,11 +8,12 @@ const SideDiv = styled.div`
   right: 5rem;
   margin-top: 70px;
   // 영역 확인
-  background-color: #fff;
+  background-color: #0ff;
 
   div {
     display: flex;
     flex-direction: column;
+    z-index: 1;
   }
 
   p {
@@ -23,8 +24,10 @@ const SideDiv = styled.div`
 `;
 
 const Side = () => {
+  // console.log("side");
   return (
     <SideDiv>
+      <p>SOLUTION</p>
       <div>
         <Link to="solution" spy={true} smooth={true}>
           <p>SOLUTION</p>

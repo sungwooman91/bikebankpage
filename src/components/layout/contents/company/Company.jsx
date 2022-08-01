@@ -2,14 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Section from "../../../common/Section";
 import SectionSub from "../../../common/SectionSub";
+
 // import styled from "styled-components";
 // import backimager from "../image/main_rent.png";
 import Slide from "./Slide";
-
-const CompanyWrap = styled.div`
-  width: 80%;
-  justify-content: center;
-`;
+// import { Card } from "react-bootstrap";
 
 const SectionComponent = styled.div`
   width: 1194px;
@@ -31,7 +28,8 @@ const Section3rdComponent = styled.div`
 
 const Company = () => {
   return (
-    <CompanyWrap>
+    <>
+      {/* <GetStoreData /> */}
       {/* 01_Section */}
       <SectionComponent>
         <Section
@@ -42,6 +40,7 @@ const Company = () => {
           발견하여 솔루션을 제안합니다."
         ></Section>
       </SectionComponent>
+      {/* <CardSection /> */}
       <SectionSubComponent>
         <SectionSub
           title="핵심 경쟁력"
@@ -82,7 +81,8 @@ const Company = () => {
         ></SectionSub>
       </SectionSubComponent>
       <Section3rdComponent></Section3rdComponent>
-    </CompanyWrap>
+      {/* <GuaranteeContext2 /> */}
+    </>
   );
 };
 

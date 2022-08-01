@@ -1,18 +1,38 @@
 import React from "react";
 import styled from "styled-components";
 
-import imgSolution1 from "../../../Images/main_solution_01.png";
-import imgSolution2 from "../../../Images/main_solution_02.png";
-import imgSolution3 from "../../../Images/main_solution_03.png";
+import background from "../image/background_yellow.jpg";
+import imgSolution1 from "../../../../Images/main_solution_01.png";
+import imgSolution2 from "../../../../Images/main_solution_02.png";
+import imgSolution3 from "../../../../Images/main_solution_03.png";
 
 const SolitionDiv = styled.div`
-  padding-top: 70px;
-  .article p {
+  width: 1080px;
+  margin: 0 auto;
+  padding: 163px 0 163px 0;
+
+  .title {
     /* background-color: skyblue; */
-    font-size: 38px;
+
+    background-image: url(${background});
+    background-size: 345px 3px;
+    background-position: 100% 56px;
+    background-repeat: no-repeat;
   }
-  .article_title {
-    color: #ffce30;
+  .title .text {
+    margin-top: 20px;
+    font-size: 38px;
+    line-height: 1.37;
+    color: #000;
+    letter-spacing: -1.9px;
+  }
+
+  .title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    color: #ffc400;
   }
   .text {
     margin-top: 20px;
@@ -27,9 +47,12 @@ const SolitionDiv = styled.div`
 
   ul {
     display: flex;
+    opacity: 1;
+    transform: translate(0px, 0px);
   }
   ul li {
-    margin-right: 15px;
+    float: left;
+    margin-right: 21px;
   }
   .contents li > p {
     font-size: 20px;
@@ -44,8 +67,8 @@ const MainSolution = () => {
   // const imgSolution = "main_rent.png";
   return (
     <SolitionDiv>
-      <div className="article">
-        <h2 className="article_title">SOLUTION</h2>
+      <div className="title">
+        <h2>SOLUTION</h2>
         <p class="text">
           기술과 인프라를 바탕으로 제공하는
           <br />

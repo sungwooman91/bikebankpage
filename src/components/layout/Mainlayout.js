@@ -6,17 +6,17 @@ import styled from "styled-components";
 import Navber from "./header/Navbar";
 
 import Company from "./contents/company/Company";
-import Customer from "./contents/customer/customer";
+import Customer from "./contents/customer/Customer";
 import Rent from "./contents/rent/Rent";
 
 const MainDiv = styled.div`
-  margin: 3rem 5rem;
   // 영역
   /* background-color: #636; */
   width: 100%;
+  display: block;
 `;
 
-export const Mainlayout = (props) => {
+export const Mainlayout = () => {
   return (
     <>
       <BrowserRouter>

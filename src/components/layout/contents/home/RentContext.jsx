@@ -1,13 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import backimager from "./image/main_rent.png";
+import backimager from "../image/main_rent.png";
+import background from "../image/background_yellow.jpg";
+
+import useCountNum from "../../../hook/useCountNum";
 
 const RentDiv = styled.div`
-  padding-top: 70px;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 140px 0 140px 0;
+
+  .title {
+    background-image: url(${background});
+    background-size: 345px 3px;
+    background-position: 100% 56px;
+    background-repeat: no-repeat;
+  }
 
   .title {
     color: #ffce30;
   }
+
   .text {
     margin-top: 20px;
     font-size: 38px;
@@ -15,6 +28,7 @@ const RentDiv = styled.div`
     color: #000;
     letter-spacing: -1.9px;
   }
+
   .text > span {
     font-weight: bold;
   }
@@ -25,6 +39,9 @@ const RentDiv = styled.div`
     letter-spacing: -0.5px;
     color: #5d5d5d;
     padding-top: 21px;
+  }
+  .main_rent_img {
+    padding: 51px 0 20px 0;
   }
   .rent_count {
     overflow: hidden;
@@ -53,39 +70,42 @@ const RentDiv = styled.div`
     color: #000;
     font-family: "sf" !important;
   }
-  .main_rent_img {
-    padding: 51px 0 20px 0;
-  }
 `;
 
 const RentPage = () => {
+  const getCityNum = useCountNum(70);
+  const getStoreNum = useCountNum(1700, 0, 2700);
+  const getRentNum = useCountNum(8000, 0, 3500);
+
   return (
-    <RentDiv>
-      <h2 className="title">RENT</h2>
-      <p className="text">
-        국내 이륜차 렌트 점유율 1위 업체로서
-        <br />
-        <span>최고 수준의 배달용 렌트 상품을 공급합니다</span>
-      </p>
-      <p className="text_02">
-        전국 8,000여대의 렌트 이륜차를 운용하며 출고부터 관리, 사고 보장까지 한
-        번에
-        <br />
-        어려운 오토바이 관리를 바이크뱅크에서 편하게 이용하세요.
-      </p>
+    <RentDiv className="main_rent">
+      <div className="title">
+        <h2>RENT</h2>
+        <p className="text">
+          국내 이륜차 렌트 점유율 1위 업체로서
+          <br />
+          <span>최고 수준의 배달용 렌트 상품을 공급합니다</span>
+        </p>
+        <p className="text_02">
+          전국 8,000여대의 렌트 이륜차를 운용하며 출고부터 관리, 사고 보장까지
+          한 번에
+          <br />
+          어려운 오토바이 관리를 바이크뱅크에서 편하게 이용하세요.
+        </p>
+      </div>
       <img src={backimager} className="main_rent_img" alt="imgtitle" />
       <ul class="rent_count">
         <li>
           <p class="c_title">운영도시</p>
-          <p class="c_num">70 +</p>
+          <p class="c_num">{getCityNum} +</p>
         </li>
         <li>
           <p class="c_title">사용점</p>
-          <p class="c_num">1700 +</p>
+          <p class="c_num">{getStoreNum} +</p>
         </li>
         <li>
           <p class="c_title">렌트수</p>
-          <p class="c_num">8000 +</p>
+          <p class="c_num">{getRentNum} +</p>
         </li>
       </ul>
     </RentDiv>
