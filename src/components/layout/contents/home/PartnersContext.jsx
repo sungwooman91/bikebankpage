@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import background from "../image/background_yellow.jpg";
 import partnerimg from "../image/parners_img.png";
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
 
 const PartnerDiv = styled.div`
   width: 100%;
@@ -55,6 +56,7 @@ const PartnerDiv = styled.div`
 `;
 
 const Partners = () => {
+  const animatedItem = useScrollFadeIn();
   return (
     <PartnerDiv className="main_partners_wrap">
       <div className="main_partners">
@@ -68,7 +70,12 @@ const Partners = () => {
           <p className="text_02">* 2022년 2월 기준</p>
         </div>
       </div>
-      <img src={partnerimg} className="partners_img" alt="partners_img"></img>
+      <img
+        src={partnerimg}
+        className="partners_img"
+        alt="partners_img"
+        {...animatedItem}
+      ></img>
     </PartnerDiv>
   );
 };

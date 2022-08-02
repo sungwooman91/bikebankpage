@@ -69,17 +69,24 @@ const SelectBox = ({ getRegionData }) => {
   // 시도 Select 박스 상태값 저장
   const handleChangeCity = (e) => {
     setInputCity(e.target.value);
+    getRegionData((searchPlace) => {
+      return {
+        ...searchPlace,
+        sido: e.target.value,
+        gugun: "",
+        level: 7,
+      };
+    });
   };
 
   // 구군 Select 박스 상태값 저장
   const handleChangeTown = (e) => {
-    // setInputTown(e.target.value);
-    // console.log(selectOption, searchPlace);
     getRegionData((searchPlace) => {
       return {
         ...searchPlace,
         sido: selectCity,
         gugun: e.target.value,
+        level: 5,
       };
     });
   };

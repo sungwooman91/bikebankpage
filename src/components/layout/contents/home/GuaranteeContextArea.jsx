@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import ServiceArea from "../image/main_service_area.png";
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
 
 const GuaranteeDiv = styled.div`
   width: 100%;
@@ -44,24 +45,25 @@ const GuaranteeDiv = styled.div`
 `;
 
 const GuaranteeContextArea = () => {
+  const animatedItem = useScrollFadeIn();
   return (
     <GuaranteeDiv className="service_area">
       <div>
-        <p class="exp">
+        <p className="exp">
           전국 370개 이상의
           <br />
           서비스망으로 확실하게
         </p>
-        <p class="exp_02">
+        <p className="exp_02">
           배달 권역별로 서비스망을 확보하여 이륜차 운용에 필요한
           <br />
           소모품 무료 교환과 사고 발생시 수리를 책임집니다.
         </p>
         <p className="num">02</p>
       </div>
-      <div class="area">
+      <div className="area">
         <a href="/service">
-          <img src={ServiceArea} alt="서비스 지역" />
+          <img src={ServiceArea} alt="서비스 지역" {...animatedItem} />
         </a>
       </div>
     </GuaranteeDiv>

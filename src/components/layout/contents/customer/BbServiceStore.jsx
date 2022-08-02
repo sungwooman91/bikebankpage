@@ -1,12 +1,10 @@
 /*global kakao */
 import React, { useState, useContext, useEffect } from "react";
-// import styled from "styled-components";
 
 import markImageRed from "../image/icon_marker_red.png";
 import markImageBlue from "../image/icon_marker_blue.png";
 import markImageYello from "../image/icon_marker_yellow.png";
-import { DataContext, ServiceStatusContext } from "../../../common/DataContext";
-// import SelectBox from "./SelectBox";
+import { DataContext } from "../../../common/DataContext";
 
 const headOfficeInfo = {
   bp_full_name: "바이크뱅크 본사",
@@ -20,22 +18,21 @@ const BbServiceStore = ({ showMap }) => {
 
   // 지도 API
   const getStoreResultData = useContext(DataContext);
-  // const getServiceStatus = useContext(ServiceStatusContext);
 
   // 마커 상태
   const [markList, setMarkList] = useState([]);
 
-  // console.log(markers);
   useEffect(() => {
     displayMarker();
-  }, [getStoreResultData]);
+    // 의존성 두번째 배열 -> 상점데이터, 맵객체 상태변경에 의한 마커 랜더링
+  }, [getStoreResultData, showMap]);
 
   function displayMarker() {
     // getStoreResultData 값 생성 됬을때
     // 스토어 마커 초기화 함수
     unMountDisplayMap();
     // 마커 초기화를 위한 리스트
-    let markers = []
+    let markers = [];
     if (getStoreResultData) {
       console.log("getStoreResultData 데이터 들어옴", getStoreResultData);
       // 지점다중 마커
@@ -50,28 +47,47 @@ const BbServiceStore = ({ showMap }) => {
         const map = showMap,
           imageSize = new kakao.maps.Size(26, 41),
           serviceArea = getData.deal_type_text;
+
         // 대리점, 지점 구분
         if (serviceArea === "소모품협력점") {
           const getImageSrc = markImageBlue;
-          // console.log("getStoreResultData 1");
-          getMarkerStore(map, getImageSrc, imageSize, getData, mPosition, markers);
+          getMarkerStore(
+            map,
+            getImageSrc,
+            imageSize,
+            getData,
+            mPosition,
+            markers
+          );
         } else if (serviceArea === "대리점") {
           const getImageSrc = markImageRed;
-          // console.log("getStoreResultData 2");
-          getMarkerStore(map, getImageSrc, imageSize, getData, mPosition, markers);
+          getMarkerStore(
+            map,
+            getImageSrc,
+            imageSize,
+            getData,
+            mPosition,
+            markers
+          );
         } else {
           const getImageSrc = markImageYello;
-          // console.log("getStoreResultData 3");
-          getMarkerStore(map, getImageSrc, imageSize, getData, mPosition, markers);
+          getMarkerStore(
+            map,
+            getImageSrc,
+            imageSize,
+            getData,
+            mPosition,
+            markers
+          );
         }
       }
     } else {
-      console.log("getStoreResultData null 값임");
+      console.log("getStoreResultData null");
     }
     setMarkList(markers);
     console.log("서비스 구분별 마커 표시 완료");
-    // console.log(markers);
   }
+
   // 지점별 마커 등록 함수
   function getMarkerStore(map, img, imageSize, getData, mPosition, markers) {
     const getMarkerImageStore = new kakao.maps.MarkerImage(img, imageSize);
@@ -80,7 +96,7 @@ const BbServiceStore = ({ showMap }) => {
       title: getData.bp_full_name,
       image: getMarkerImageStore,
     });
-    // console.log("getStoreResultData 함수");
+    // 마커 표시 및 삭제를 위한 배열 처리
     mMarker.setMap(map);
     markers.push(mMarker);
     // 마커 클릭이벤트 리스너
@@ -93,15 +109,14 @@ const BbServiceStore = ({ showMap }) => {
   }
 
   function unMountDisplayMap() {
-    markList.forEach(marker => {
+    markList.forEach((marker) => {
       marker.setMap(null);
-    })
+    });
     // 마커 제거 처리 결과
     // console.log(markList);
   }
 
   return (
-    // <MapkakaoWarp className="map_wrap">
     <>
       <div className="data_txt">
         <div className="title" id="title">
@@ -130,7 +145,6 @@ const BbServiceStore = ({ showMap }) => {
           </div>
         </div>
       </div>
-      {/* </MapkakaoWarp> */}
     </>
   );
 };

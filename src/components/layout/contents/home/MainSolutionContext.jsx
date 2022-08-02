@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
 import background from "../image/background_yellow.jpg";
 import imgSolution1 from "../../../../Images/main_solution_01.png";
 import imgSolution2 from "../../../../Images/main_solution_02.png";
@@ -54,6 +55,11 @@ const SolitionDiv = styled.div`
     float: left;
     margin-right: 21px;
   }
+  .contents {
+    padding-top: 52px;
+    overflow: hidden;
+  }
+
   .contents li > p {
     font-size: 20px;
     line-height: 1.6;
@@ -64,17 +70,17 @@ const SolitionDiv = styled.div`
 `;
 
 const MainSolution = () => {
-  // const imgSolution = "main_rent.png";
+  const animatedItem = useScrollFadeIn();
   return (
     <SolitionDiv>
       <div className="title">
         <h2>SOLUTION</h2>
-        <p class="text">
+        <p className="text">
           기술과 인프라를 바탕으로 제공하는
           <br />
           <span>이륜차 솔루션을 이용해보세요</span>
         </p>
-        <ul className="contents">
+        <ul className="contents" {...animatedItem}>
           <li>
             <img src={imgSolution1} alt="이륜차 렌트" />
             <p>이륜차 렌트</p>

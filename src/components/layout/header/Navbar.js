@@ -11,6 +11,10 @@ const Navber = () => {
   const toggleLinks = () => {
     setShowLinks(!showLinks);
   };
+  const clickHome = () => {
+    window.location.href = "/";
+    console.log("Dfsdf");
+  };
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;
@@ -25,8 +29,7 @@ const Navber = () => {
   return (
     <header className="nav_container">
       <div className="nav-center">
-        <div className="nav-header">
-          {/* <img src={logo} className="logo" alt="logo" /> */}
+        <div className="nav-header" onClick={clickHome}>
           <button className="nav-toggle" onClick={toggleLinks}>
             <FaBars />
           </button>
@@ -37,6 +40,7 @@ const Navber = () => {
             {/* data에서 Nav목록 가져오기 */}
             {links.map((link) => {
               const { id, url, text } = link;
+              console.log(url);
               return (
                 <li key={id}>
                   <a href={url}>{text}</a>

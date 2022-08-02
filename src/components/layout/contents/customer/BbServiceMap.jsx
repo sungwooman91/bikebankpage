@@ -6,12 +6,14 @@ import markImageBb from "../image/icon_marker_bikebank.png";
 // import { DataContext, ServiceStatusContext } from "../../../common/DataContext";
 import SelectBox from "./SelectBox";
 import BbServiceStore from "./BbServiceStore";
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
 
 const headOfficeInfo = {
   bp_full_name: "바이크뱅크 본사",
   corp_tel: "1522-9008",
   corp_address: "대구광역시 달서구 성서공단로 11길 62",
   business_hours: "9:00 ~ 18:00",
+  level: 4,
 };
 
 const CustomerMap = styled.div`
@@ -101,39 +103,63 @@ const MapkakaoWarp = styled.div`
 
 const BbServiceMap = () => {
   const { kakao } = window; // eslint-disable-line no-unused-vars
+  // 지도 상태 관리
   const [showMap, setShowMap] = useState(null);
 
   // 셀렉박스 상태값 가져오기 지도구역
   const [searchPlace, setSearchPlace] = useState({
     sido: "",
     gugun: "",
+    level: "",
   });
+  // 맵 애니메이션
+  const animatedMap = useScrollFadeIn();
 
   const getRegionData = (searchPlace) => {
     setSearchPlace(searchPlace);
   };
 
-  console.log(searchPlace);
-
   useEffect(() => {
-    mapSetup();
-  }, []);
+    mapSetup(searchPlace);
+  }, [searchPlace]);
 
-  function mapSetup() {
-    // console.log("지도 그리는중...");
+  function mapSetup(searchPlace) {
+    // 지역구별 검색 버퍼
+    let placeSearch = `${searchPlace.sido} ${searchPlace.gugun}`;
+
+    // 지역구 검색 인자 처리결과
+    console.log(placeSearch);
+    console.log(searchPlace.level);
+
+    // 지도 생성 시작
     const container = document.getElementById("map");
     const homePosition = new kakao.maps.LatLng(35.8404138, 128.4891459);
     // 지도 생성 옵션
     const options = {
       center: homePosition,
-      level: 6,
+      level: 4,
     };
     // 지도 생성 => 지도를 먼저 생성하고 부가적인 기능들을 생성한다.
     const map = new kakao.maps.Map(container, options);
-    const control = new kakao.maps.ZoomControl();
-    // Zoom 컨트롤러 생성
-    map.addControl(control, kakao.maps.ControlPosition.TOPRIGHT);
+    setShowMap(map);
 
+    const placeBuffer = new kakao.maps.services.Places();
+    placeBuffer.keywordSearch(placeSearch, placeSearchCB);
+
+    function placeSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        const bounds = new kakao.maps.LatLngBounds();
+
+        for (var i = 0; i < data.length; i++) {
+          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        }
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        map.setBounds(bounds);
+      }
+    }
+    // Zoom 컨트롤러 생성
+    const control = new kakao.maps.ZoomControl();
+    map.addControl(control, kakao.maps.ControlPosition.TOPRIGHT);
 
     //마커 이미지 설정
     const imageSrc = markImageBb,
@@ -158,15 +184,17 @@ const BbServiceMap = () => {
       document.getElementById("corp_hours").innerHTML =
         headOfficeInfo.business_hours;
     });
-    setShowMap(map);
   }
   return (
     <>
-      <CustomerMap className="customer_map">
+      <CustomerMap className="customer_map" {...animatedMap}>
         <SelectBox getRegionData={getRegionData} />
         <MapkakaoWarp className="map_wrap">
           <div className="kakao_map" id="map"></div>
-          <BbServiceStore showMap={showMap}></BbServiceStore>
+          <BbServiceStore
+            showMap={showMap}
+            getRegionData={searchPlace}
+          ></BbServiceStore>
         </MapkakaoWarp>
       </CustomerMap>
     </>

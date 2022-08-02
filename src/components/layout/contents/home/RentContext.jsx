@@ -4,6 +4,7 @@ import backimager from "../image/main_rent.png";
 import background from "../image/background_yellow.jpg";
 
 import useCountNum from "../../../hook/useCountNum";
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
 
 const RentDiv = styled.div`
   width: 1080px;
@@ -76,6 +77,7 @@ const RentPage = () => {
   const getCityNum = useCountNum(70);
   const getStoreNum = useCountNum(1700, 0, 2700);
   const getRentNum = useCountNum(8000, 0, 3500);
+  const animatedItem = useScrollFadeIn();
 
   return (
     <RentDiv className="main_rent">
@@ -93,19 +95,24 @@ const RentPage = () => {
           어려운 오토바이 관리를 바이크뱅크에서 편하게 이용하세요.
         </p>
       </div>
-      <img src={backimager} className="main_rent_img" alt="imgtitle" />
-      <ul class="rent_count">
+      <img
+        src={backimager}
+        className="main_rent_img"
+        alt="imgtitle"
+        // {...animatedItem}
+      />
+      <ul className="rent_count" {...animatedItem}>
         <li>
-          <p class="c_title">운영도시</p>
-          <p class="c_num">{getCityNum} +</p>
+          <p className="c_title">운영도시</p>
+          <p className="c_num">{getCityNum} +</p>
         </li>
         <li>
-          <p class="c_title">사용점</p>
-          <p class="c_num">{getStoreNum} +</p>
+          <p className="c_title">사용점</p>
+          <p className="c_num">{getStoreNum} +</p>
         </li>
         <li>
-          <p class="c_title">렌트수</p>
-          <p class="c_num">{getRentNum} +</p>
+          <p className="c_title">렌트수</p>
+          <p className="c_num">{getRentNum} +</p>
         </li>
       </ul>
     </RentDiv>

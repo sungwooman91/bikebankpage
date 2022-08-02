@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import priceArea from "../image/main_price_area.png";
 
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
+
 const GuaranteeDiv = styled.div`
   width: 100%;
   padding: 168px 0 251px 0;
@@ -54,6 +56,7 @@ const GuaranteeDiv = styled.div`
 `;
 
 const GuaranteeContextPrice = () => {
+  const animatedItem = useScrollFadeIn();
   return (
     <GuaranteeDiv>
       <div className="title">
@@ -68,7 +71,7 @@ const GuaranteeContextPrice = () => {
         </p>
         <p className="num">03</p>
       </div>
-      <div className="area">
+      <div className="area" {...animatedItem}>
         <a href>
           <img src={priceArea} alt="price_area"></img>
         </a>

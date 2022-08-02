@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import check_bg from "../image/check_bg.jpg";
 
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
+
 const CheckpointeDiv = styled.div`
   background: url(${check_bg});
   background-repeat: no-repeat;
@@ -94,17 +96,19 @@ export const Context = styled.p`
 `;
 
 const CheckpointContext = () => {
+  const animatedItemOne = useScrollFadeIn();
+
   return (
     <CheckpointeDiv className="check_point_wrap">
       <Box className="check_point">
         <div className="title">
           <h2 className="article_title">CHECK POINT</h2>
-          <p class="text">
+          <p className="text">
             배달용 렌트의 기준
             <br />세 가지를 꼭 체크하세요
           </p>
         </div>
-        <Container>
+        <Container {...animatedItemOne}>
           <Row>
             <Column>
               <Heading>01.</Heading>

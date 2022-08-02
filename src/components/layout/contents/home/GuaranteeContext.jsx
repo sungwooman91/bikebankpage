@@ -3,13 +3,12 @@ import styled from "styled-components";
 
 import BackGroundB from "../image/background_blue.jpg";
 import BackGroundG from "../image/background_gray.jpg";
-
+import { useScrollFadeIn } from "../../../hook/useScrollFadeIn";
 const GuaranteeDiv = styled.div`
   width: 100%;
   padding: 165px 0 237px 0;
-  display: block;
 
-  div {
+  .guarantee_title {
     position: relative;
     width: 1080px;
     margin: 0 auto;
@@ -42,8 +41,6 @@ const GuaranteeDiv = styled.div`
     padding-bottom: 30px;
   }
   .guar_list > li {
-    transform: translate(0px, 0px);
-    opacity: 1;
     width: 344px;
     height: 200px;
     display: inline-block;
@@ -90,8 +87,6 @@ const GuaranteeDiv = styled.div`
 `;
 
 const RCSlist = styled.ul`
-  opacity: 1;
-  transform: translate(0px, 0px);
   width: 100%;
   padding-top: 32px;
   text-align: center;
@@ -170,9 +165,14 @@ const RCSlist = styled.ul`
 `;
 
 const GuaranteeContext = () => {
+  const animatedItemForMan = useScrollFadeIn();
+  const animatedItemTing = useScrollFadeIn();
+  const animatedItemForRider = useScrollFadeIn();
+  const animatedItem = useScrollFadeIn();
+
   return (
-    <GuaranteeDiv>
-      <div className="guarantee_wrap">
+    <GuaranteeDiv className="guarantee">
+      <div className="guarantee_title">
         <p className="exp">
           배달용 이륜차 선택할 때<br />
           핵심은 보장 범위
@@ -184,36 +184,38 @@ const GuaranteeContext = () => {
         </p>
         <p className="num">01</p>
       </div>
+
       <ul className="guar_list">
-        <li>
+        <li {...animatedItemForMan}>
           <p className="title">대인보장</p>
           <p className="exp">무 한</p>
         </li>
-        <li>
+        <li {...animatedItemTing}>
           <p className="title">대물보장</p>
           <p className="exp">2억원</p>
         </li>
-        <li>
+        <li {...animatedItemForRider}>
           <p className="title">라이더 추가보장</p>
           <p className="exp">상해보험</p>
         </li>
       </ul>
+
       <button type="button">보험보장 상세내용</button>
       <hr className="hr_guar" />
-      <RCSlist>
-        <li class="bikebank">
-          <p class="title">바이크뱅크 RCS 이용시</p>
-          <p class="price">7,400만원</p>
-          <p class="text">보상 받은 사연</p>
-          <p class="link" onClick="#">
+      <RCSlist {...animatedItem}>
+        <li className="bikebank">
+          <p className="title">바이크뱅크 RCS 이용시</p>
+          <p className="price">7,400만원</p>
+          <p className="text">보상 받은 사연</p>
+          <p className="link" onClick="#">
             횡단보도 보행자 충돌 사고
           </p>
         </li>
-        <li class="default">
-          <p class="title">책임보험만 가입시</p>
-          <p class="price">3,100만원</p>
-          <p class="text">부담 한 사연</p>
-          <p class="link" onClick="#">
+        <li className="default">
+          <p className="title">책임보험만 가입시</p>
+          <p className="price">3,100만원</p>
+          <p className="text">부담 한 사연</p>
+          <p className="link" onClick="#">
             무단횡단 피해자와 충돌 사고
           </p>
         </li>
