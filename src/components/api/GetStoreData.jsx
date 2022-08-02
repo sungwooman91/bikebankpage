@@ -1,10 +1,8 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { SetDataContext, ServiceStatusContext } from "../common/DataContext";
 
 const GetStoreData = () => {
-  // 로그체크
-  const [num, setNum] = useState(0);
   // Context로 받는 파라미터로 상태 변환
   const setStoreInfo = useContext(SetDataContext);
   // 서비스 조건 상태값
@@ -14,14 +12,11 @@ const GetStoreData = () => {
   // 로딩 상태 값
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-
-  // context에 저장 -> 전역에서 호출 가능
+  // serivceStatus 상태가 변경시 호출
   useEffect(() => {
-    setStoreInfo(storeData);
-  });
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchStores();
+  }, [serivceStatus]);
+
   const fetchStores = async () => {
     try {
       let address =
@@ -34,27 +29,25 @@ const GetStoreData = () => {
         address =
           "http://leaseapi.gobikebank.com/v1/repair/shop/?product_type=3&corp_sido=&corp_gugun";
       }
-
-      
+      // 요청에 따른 api 주소 처리결과
+      // console.log(address);
       setError(null);
       // API 호출 데이터 초기화
       setStoreData(null);
       setLoading(true);
-      await axios.get(address)
-      .then((res)=> setStoreData(res.data.result_data))
-      
-      console.log("In fetchStores");
+      const response = await axios.get(address);
+
+      setStoreData(response.data.result_data); // response.data를 storeData로 명명
     } catch (e) {
       setError(e);
     }
     setLoading(false);
   };
 
-
-  // setStoreData를 두번째 배열에 넣지 않으면 무한 랜더링 진행...
+  // context에 저장 -> 전역에서 호출 가능
   useEffect(() => {
-    fetchStores();   
-  },[serivceStatus]);
+    setStoreInfo(storeData);
+  });
 
   if (loading) return <div>로딩중..</div>;
 
