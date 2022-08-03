@@ -2,13 +2,13 @@
 import "./App.css";
 import { useState } from "react";
 
-import { Mainlayout } from "./components/layout/Mainlayout";
+import { Mainlayout } from "./pages/Mainlayout";
 import {
   DataContext,
   ServiceStatusContext,
   SetDataContext,
   SetServiceStatusContext,
-} from "./components/common/DataContext";
+} from "./common/DataContext";
 // import GetStoreData from "./components/api/GetStoreData";
 
 function App() {
