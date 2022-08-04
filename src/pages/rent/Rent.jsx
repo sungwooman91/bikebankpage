@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Section from "../../common/Section";
+import Navititle from "../../components/header/Navititle";
 // import styled from "styled-components";
 // import backimager from "../image/main_rent.png";
 import Slide from "../company/Slide";
@@ -12,8 +13,10 @@ const SectionComponent = styled.div`
 `;
 
 const Rent = () => {
+  const pageName = "렌트소개";
   return (
     <>
+      <Navititle title={pageName} />
       <SectionComponent>
         <Section
           id="01"

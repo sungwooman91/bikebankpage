@@ -16,7 +16,6 @@ const Container = styled.div`
 
 const InfraShow = styled(Slider)`
   .slick-slide div {
-    /* background-color: #0f0; */
     white-space: pre-wrap;
     margin-top: 30px;
   }
@@ -24,15 +23,13 @@ const InfraShow = styled(Slider)`
 
 const InfraTop = styled.div`
   text-align: center;
-  /* background-color: #f00; */
   .infra_pic {
     margin: auto;
   }
 `;
+
 const InfraBot = styled.div`
-  /* display: block; */
   text-align: center;
-  /* background-color: #f0f; */
 
   p {
     font-size: 18px;
@@ -64,8 +61,8 @@ const Slide = () => {
   return (
     <Container>
       <InfraShow {...settings}>
-        {dataDigitalBestSeller.map((item) => (
-          <div className="infra_list">
+        {dataDigitalBestSeller.map((item, index) => (
+          <div key={index} className="infra_list">
             <InfraTop>
               <img src={item.img} alt={item.title} className="infra_pic" />
             </InfraTop>

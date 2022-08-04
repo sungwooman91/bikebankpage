@@ -3,8 +3,10 @@ import styled from "styled-components";
 // Common
 import Section from "../../common/Section.jsx";
 import SectionSub from "../../common/SectionSub.jsx";
+import Navititle from "../../components/header/Navititle.js";
+// api
 import GetStoreData from "../../api/GetStoreData.jsx";
-// view
+// item
 import BbServiceMap from "./BbServiceMap.jsx";
 import ServiceCall from "./ServiceCall.jsx";
 import ServiceQna from "./ServiceQna.jsx";
@@ -25,8 +27,10 @@ export const QnaComponet = styled.div`
   padding: 99px 0 275px 0;
 `;
 const Customer = () => {
+  const pageName = "고객지원";
   return (
     <>
+      <Navititle title={pageName} />
       <SectionComponent>
         <GetStoreData />
         <Section

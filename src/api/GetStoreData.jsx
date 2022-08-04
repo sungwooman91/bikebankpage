@@ -49,9 +49,9 @@ const GetStoreData = () => {
     setStoreInfo(storeData);
   });
 
-  if (loading) return <div>로딩중..</div>;
+  if (loading) return console.log("로딩중");
 
-  if (error) return <div>에러가 발생했습니다</div>;
+  if (error) return console.log("에러가 발생했습니다!!");
 
   if (!storeData) return null;
 

@@ -9,6 +9,7 @@ const SectionTitle = styled.p`
   line-height: 52px;
   letter-spacing: -0.95px;
   font-weight: bold;
+  white-space: pre-wrap;
 `;
 
 const SectionContext = styled.p`
@@ -19,6 +20,7 @@ const SectionContext = styled.p`
   line-height: 32px;
   letter-spacing: -0.5px;
   color: #5d5d5d;
+  white-space: pre-wrap;
 `;
 
 function SectionSub(props) {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Section from "../../../common/Section";
+import Section from "../../common/Section";
+import Navititle from "../../components/header/Navititle";
 // import Slide from "./Slide";
 
 const BikeWrap = styled.div`
@@ -16,36 +17,35 @@ const SectionComponent = styled.div`
   padding: 70px 0 143px 0;
 `;
 
-const Company = () => {
+const Bike = () => {
+  const pageName = "차량판매";
   return (
-    <CompanyWrap>
+    <>
+      <Navititle title={pageName} />
       <SectionComponent>
         <Section
           id="01"
-          title="바이크뱅크"
-          subtitle="끊임없이 진화하는 종합 이륜차 솔루션 기업"
-          context="바이크뱅크는 빠르게 변화하는 퍼스널 모빌리티 환경에서 문제점을
-          발견하여 솔루션을 제안합니다."
+          title="판매용 완성차 라인업"
+          subtitle="바이크뱅크의 판매 전용 차량을 선보입니다."
         ></Section>
       </SectionComponent>
       <SectionComponent>
         <Section
           id="02"
-          title="비즈니스를 변화시키는"
-          subtitle="편리한 기술"
-          context="서면으로 계약하는 불편함은 해소하고 휴대폰 인증으로 안전하고 편리하게 계약을 진행하세요."
+          title="보증 정책"
+          subtitle="안전하고 만족스러운 서비스를 제공하겠습니다."
+          context="구입하신 차량을 구성하는 각 부품의 제조상 불량이 발생한 경우"
+          context_2="보증서에 표시된 기간과 조건에 따라 무상수리 서비스를 제공합니다."
         ></Section>
       </SectionComponent>
-      <Slide />
+
       <Section
         id="03"
-        title="출고부터 수거까지"
-        subtitle="준비된 이륜차 인프라"
-        context="생활 속 편안한 주행 경험을 위해 차량 이용의 모든 과정에서 바이크뱅크의 관리를 받을 수 있습니다."
+        subtitle="차량 서비스 안내"
+        context="고객님께 만족스러운 서비스를 제공하겠습니다."
       ></Section>
-      <Slide />
-    </CompanyWrap>
+    </>
   );
 };
 
-export default Company;
+export default Bike;

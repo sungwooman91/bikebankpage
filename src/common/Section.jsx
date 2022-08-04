@@ -18,11 +18,7 @@ const SectionTitle = styled.p`
   letter-spacing: -0.95px;
   width: 1194px;
   margin: 0 auto;
-  font-weight: bold;
-
-  p {
-    white-space: pre-wrap;
-  }
+  white-space: pre-wrap;
 
   span {
     font-weight: bold;
@@ -37,6 +33,7 @@ const SectionContext = styled.p`
   color: #5d5d5d;
   width: 1194px;
   margin: 0 auto;
+  white-space: pre-wrap;
 `;
 
 function Section(props) {
@@ -48,7 +45,7 @@ function Section(props) {
       <SectionTitle>
         {title}
         <br />
-        <span>{subtitle}</span>
+        {<span>{subtitle}</span>}
       </SectionTitle>
       <SectionContext>
         {context}
