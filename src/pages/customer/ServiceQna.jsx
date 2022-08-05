@@ -36,14 +36,14 @@ const ServiceQna = () => {
     <>
       <ServiceComponent className="qna_box" {...animatedItem}>
         <Accordion defaultActiveKey={["0"]} alwaysOpen>
-          {qnaContext.map((data) => {
+          {qnaContext.map((data, index) => {
             return (
-              <Accordion.Item eventKey={data.key}>
+              <Accordion.Item key={index} eventKey={data.key}>
                 <Accordion.Header>{data.header}</Accordion.Header>
                 <Accordion.Body>
-                  {data.body.split("\n").map((line) => {
+                  {data.body.split("\n").map((line, index) => {
                     return (
-                      <span>
+                      <span key={index}>
                         {line}
                         <br />
                       </span>

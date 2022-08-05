@@ -10,6 +10,30 @@ import { useScrollFadeIn } from "../../hook/useScrollFadeIn";
 import btn_google from "../image/btn_google.png";
 import btn_apple from "../image/btn_apple.png";
 
+const AppCardSection = () => {
+  const animateScroll = useScrollFadeIn();
+
+  return (
+    <Container className="app_list" {...animateScroll}>
+      {AppCardSectionData.map((item, index) => {
+        return (
+          <Card key={index} className="app_contents" style={{ width: "23rem" }}>
+            <Card.Img className="img" variant="top" src={item.img} />
+            <Card.Body className="tech_body">
+              <Card.Title className="title">{item.title}</Card.Title>
+              <Card.Text style={{ font: "18px" }}>{item.text}</Card.Text>
+              <Button className="google_box" variant="light" />
+              {item.id === 2 && (
+                <Button className="apple_box" variant="light" />
+              )}
+            </Card.Body>
+          </Card>
+        );
+      })}
+    </Container>
+  );
+};
+
 const Container = styled.div`
   width: 1194px;
   min-height: 560px;
@@ -73,29 +97,5 @@ const Container = styled.div`
     background-image: url(${btn_apple});
   }
 `;
-
-const AppCardSection = () => {
-  const animateScroll = useScrollFadeIn();
-
-  return (
-    <Container className="app_list" {...animateScroll}>
-      {AppCardSectionData.map((item, index) => {
-        return (
-          <Card key={index} className="app_contents" style={{ width: "23rem" }}>
-            <Card.Img className="img" variant="top" src={item.img} />
-            <Card.Body className="tech_body">
-              <Card.Title className="title">{item.title}</Card.Title>
-              <Card.Text style={{ font: "18px" }}>{item.text}</Card.Text>
-              <Button className="google_box" variant="light" />
-              {item.id === 2 && (
-                <Button className="apple_box" variant="light" />
-              )}
-            </Card.Body>
-          </Card>
-        );
-      })}
-    </Container>
-  );
-};
 
 export default AppCardSection;

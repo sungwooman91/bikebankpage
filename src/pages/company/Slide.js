@@ -59,22 +59,30 @@ const Slide = () => {
   };
 
   return (
-    <Container>
-      <InfraShow {...settings}>
-        {dataDigitalBestSeller.map((item, index) => (
-          <div key={index} className="infra_list">
-            <InfraTop>
-              <img src={item.img} alt={item.title} className="infra_pic" />
-            </InfraTop>
-            <InfraBot>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </InfraBot>
-          </div>
-        ))}
-      </InfraShow>
-    </Container>
+    <SlideContainer>
+      <Container>
+        <InfraShow {...settings}>
+          {dataDigitalBestSeller.map((item, index) => (
+            <div key={index} className="infra_list">
+              <InfraTop>
+                <img src={item.img} alt={item.title} className="infra_pic" />
+              </InfraTop>
+              <InfraBot>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </InfraBot>
+            </div>
+          ))}
+        </InfraShow>
+      </Container>
+    </SlideContainer>
   );
 };
+
+const SlideContainer = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  padding: 145px 0 0px 0px;
+`;
 
 export default Slide;

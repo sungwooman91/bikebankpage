@@ -60,6 +60,7 @@ const SelectBox = ({ getRegionData }) => {
   const Rent = "rent";
   const Bike = "bike";
   const Default = "default";
+
   // 서비스 조건 상태 저장
   const handleChangeOption = (e) => {
     // const status = e.target.value;
@@ -119,8 +120,10 @@ const SelectBox = ({ getRegionData }) => {
           onChange={handleChangeCity}
         >
           <option value="001">시/도 선택</option>
-          {Sido.map((item) => (
-            <option value={item.region}>{item.region}</option>
+          {Sido.map((item, index) => (
+            <option key={index} value={item.region}>
+              {item.region}
+            </option>
           ))}
         </select>
       </Span>
