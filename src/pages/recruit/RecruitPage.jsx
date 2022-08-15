@@ -1,135 +1,360 @@
 import React from "react";
 import styled from "styled-components";
 // Common
-import Section from "../../common/Section";
 import SectionSub from "../../common/SectionSub";
 import Navititle from "../../components/header/Navititle";
 import { useScrollFadeIn } from "../../hook/useScrollFadeIn";
 // Contents
 
 // background-image
-import challengeimage from "../image/challenge_bg.png";
-import supplyimage from "../image/tech_03_01.png";
-import companyMap from "../image/company_map.png";
+import recruitImg1 from "../image/recruit_02_01.png";
+import recruitImg2 from "../image/recruit_02_02.png";
+import recruitImg3 from "../image/recruit_02_03.png";
+import recruitImg4 from "../image/recruit_02_04.png";
+import growthImg1 from "../image/growth_01.png";
+import growthImg2 from "../image/growth_02.png";
+import processImg from "../image/recruit_process.png";
+import blogArrowImg from "../image/blog_arrow.png";
 
 const RecruitPage = () => {
-  const animationSupplyImg = useScrollFadeIn();
-  const animationCompanyImg = useScrollFadeIn();
-  const animationCompanyList = useScrollFadeIn();
-
+  const animationRecruitImg = useScrollFadeIn();
+  const RecruitText = useScrollFadeIn();
+  const RecruitGrowth = useScrollFadeIn();
+  const RecruitProcess = useScrollFadeIn();
+  const RecruitBlog = useScrollFadeIn();
   const headerTitle = "채용안내";
-  const order =
-      "플레이 스토어에서 APP을 바운받으세요.\n별도의 절차 없이 어디서나 차량 신청 및 관리가 가능합니다.",
-    supplyText =
-      "고객에게 빠르게 차량을 공급하기 위하여\n차량 신청 후 출고까지 최적화 된 시스템을 구축하였습니다.",
-    serviceText =
-      "권역별로 서비스망을 확보하여 이륜차 운용에 필요한\n소모품 교환과 사고발생 수리를 책임집니다.";
+  const recruitPage =
+    "https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=THlTNTZRY3VQWHZTL3BrMTQwODhZdz09";
+  const blogPage = "https://blog.naver.com/gobikebank";
+
   return (
     <>
       <Navititle title={headerTitle} />
       <SectionComponent>
-        <Section
-          id="01"
-          title="바이크뱅크"
-          subtitle="끊임없이 진화하는 종합 이륜차 솔루션 기업"
-          context="바이크뱅크는 빠르게 변화하는 퍼스널 모빌리티 환경에서"
-          context_2="문제점을
-          발견하여 솔루션을 제안합니다."
-        ></Section>
-      </SectionComponent>
-
-      <SectionSubComponent>
         <SectionSub
-          title="핵심 경쟁력"
-          context="전문성과 업계 경험을 바탕으로"
-          context_2="고객에게 종합 이륜차 솔루션을 제공합니다."
+          title="더 나은 이륜차 시장을 만듭니다."
+          context="바이크 뱅크는 배달용 이륜차 시장을 선도하는 기업으로"
+          context_2="고객 만족을 위해 임직원이 함께 노력하며 성장하고 있습니다."
         ></SectionSub>
-      </SectionSubComponent>
-      <SectionChallenge>
-        <SectionSub title="도전과 성과"></SectionSub>
-      </SectionChallenge>
-      {/* 02_Section */}
-      <SectionComponent>
-        <Section
-          id="02"
-          title="비즈니스를 변화시키는"
-          subtitle="편리한 기술"
-          context="서면으로 계약하는 불편함은 해소하고"
-          context_2="휴대폰 인증으로 안전하고 편리하게 계약을 진행하세요."
-        ></Section>
       </SectionComponent>
-      <SectionOrder>
-        <SectionSub title="차량 신청과 관리" context={order}></SectionSub>
-      </SectionOrder>
-      <SectionSupply>
-        <SectionSub title="차량 공급시스템" context={supplyText}></SectionSub>
-      </SectionSupply>
-      {/* 03_Section */}
-      <SectionComponent>
-        <Section
-          id="03"
-          title="출고부터 수거까지"
-          subtitle="준비된 이륜차 인프라"
-          context="생활 속 편안한 주행 경험을 위해 차량 이용의 모든 과정에서 바이크뱅크의 관리를 받을 수 있습니다."
-        ></Section>
-      </SectionComponent>
-      <SectionService>
-        <SectionSub
-          title="370개 이상의 서비스망으로 확실하게"
-          context={serviceText}
-        ></SectionSub>
-      </SectionService>
+      <SectionRecruitPage>
+        <p className="title">근무 환경과 복지</p>
+        <SectionRecruitImg className="recruit_img" {...animationRecruitImg}>
+          <li className="recruit_img_01">
+            <img src={recruitImg1} alt="" />
+          </li>
+          <li className="recruit_img_02">
+            <img src={recruitImg2} alt="" />
+          </li>
+          <li className="recruit_img_03">
+            <img src={recruitImg3} alt="" />
+          </li>
+          <li className="recruit_img_04">
+            <img src={recruitImg4} alt="" />
+          </li>
+        </SectionRecruitImg>
+        <SectionRecruitTest className="recruit_text" {...RecruitText}>
+          <li className="text_01">
+            <p className="title">열심히 일한 당신. 성과를 나누자!</p>
+            <p className="exp">성과연봉제, 인센티브 제도</p>
+          </li>
+          <li className="text_02">
+            <p className="title">자기 개발을 적극적으로 응원합니다!</p>
+            <p className="exp">자기 개발을 적극적으로 응원합니다!</p>
+          </li>
+          <li className="text_03">
+            <p className="title">함께하는 시간을 가져요.</p>
+            <p className="exp">분기별 직원 문화활동 지원</p>
+          </li>
+          <li className="text_04">
+            <p className="title">연휴는 마음 편히 보내요.</p>
+            <p className="exp">명절 선물/귀향비, 여름휴가비 지급</p>
+          </li>
+          <li className="text_05">
+            <p className="title">업무에 필요한 환경을 지원해요.</p>
+            <p className="exp">업무 장비, 중식비, 음료 및 간식 지원</p>
+          </li>
+          <li className="text_06">
+            <p className="title">주차 스트레스는 이제 그만.</p>
+            <p className="exp">주차장 및 주차비 지원</p>
+          </li>
+        </SectionRecruitTest>
+      </SectionRecruitPage>
+      <SectionRaseRate>
+        <p className="title">바이크뱅크의 성장</p>
+        <ul className="growth" {...RecruitGrowth}>
+          <li className="growth_rate_01">
+            <img src={growthImg1} alt="" />
+          </li>
+          <li className="growth_rate_02">
+            <img src={growthImg2} alt="" />
+          </li>
+        </ul>
+      </SectionRaseRate>
+      <SectionRecruitProcess>
+        <p className="title">입사 과정</p>
+        <img src={processImg} className="process" alt="" {...RecruitProcess} />
+        <hr />
+        <p className="check_list">체크리스트</p>
+        <p className="check_list_txt">
+          - 입사 지원시 본인의 성명, 연락처, 이메일 주소 등을 정확하게
+          기입하세요. <br />
+          &nbsp;&nbsp;이력서에 기재된 학력 및 경력 사항이 거짓일 경우 합격이
+          취소될 수 있습니다.
+          <br />- 직무 특성에 따라 사전 과제, 면접, 레퍼런스 체크 등이 추가될 수
+          있습니다. <br />- 종합적인 결과를 바탕으로 최종 심사를 거쳐 결과를
+          합격자에게 개별 안내합니다.
+        </p>
+        <button
+          type="button"
+          className="recruit_info"
+          onClick={() => window.open(recruitPage, "_blank")}
+        >
+          채용정보 바로가기
+        </button>
+      </SectionRecruitProcess>
+      <SectionBlog>
+        <div className="bb_blog" {...RecruitBlog}>
+          <p>
+            바이크뱅크의 소식이 궁금하신가요??
+            <br />
+            블로그를 통해 살펴보세요.
+          </p>
+          <button
+            type="button"
+            className="btn_blog"
+            onClick={() => window.open(blogPage, "_blank")}
+          >
+            바이크뱅크 블로그 &nbsp;
+            <img src={blogArrowImg} alt="" />
+          </button>
+        </div>
+      </SectionBlog>
     </>
   );
 };
 
 const SectionComponent = styled.div`
+  width: 100%;
+  padding: 191px 0 107px 0;
+`;
+
+const SectionRecruitPage = styled.div`
+  width: 100%;
+  padding: 0 0 178px 0;
+  overflow: hidden;
+
+  .title {
+    font-size: 38px;
+    line-height: 52px;
+    letter-spacing: -0.95px;
+    width: 1194px;
+    margin: 0 auto;
+    font-weight: bold;
+    padding-bottom: 40px;
+  }
+`;
+
+const SectionRecruitImg = styled.ul`
   width: 1194px;
   margin: 0 auto;
-  padding: 70px 0 143px 0;
+  padding-left: 0rem;
+
+  .recruit_img_01 {
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+
+  .recruit_img_02 {
+    margin-right: 0px;
+    margin-bottom: 50px;
+  }
+
+  .recruit_img_03 {
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+  .recruit_img_04 {
+    margin-right: 0px;
+  }
 `;
 
-const SectionSubComponent = styled.div`
+const SectionRecruitTest = styled.ul`
+  width: 1194px;
+  margin: 0 auto;
+  min-height: 480px;
+  padding-left: 0rem;
+
+  li {
+    width: 572px;
+    height: 130px;
+    border-radius: 15px;
+    box-shadow: 5px 0 30px 0 rgb(125 125 125 / 16%);
+    float: left;
+    margin-bottom: 30px;
+    margin-right: 50px;
+  }
+
+  li:nth-child(2n) {
+    margin-right: 0px;
+  }
+
+  li > .title {
+    padding: 20px 0 20px 50px;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: bold;
+    letter-spacing: -0.6px;
+  }
+
+  li > .exp {
+    padding-left: 50px;
+    color: #5d5d5d;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.45px;
+  }
+`;
+
+const SectionRaseRate = styled.div`
   width: 100%;
+  padding: 140px 0 150px 0;
   background-color: #f8f8f8;
-  padding: 90px 0 145px 0;
+
+  .title {
+    font-size: 38px;
+    line-height: 52px;
+    letter-spacing: -0.95px;
+    width: 1194px;
+    margin: 0 auto;
+    font-weight: bold;
+    padding-bottom: 40px;
+  }
+
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+
+  li {
+    display: inline-block;
+  }
 `;
 
-const SectionChallenge = styled.div`
+const SectionRecruitProcess = styled.div`
   width: 100%;
-  padding: 137px 0 260px 0;
-  background-image: url(${challengeimage});
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
-`;
-
-const SectionOrder = styled.div`
-  width: 100%;
+  padding: 0 0 180px 0;
   background-color: #f8f8f8;
-  padding: 176px 0;
   position: relative;
 
-  .supply_img {
+  .title {
+    font-size: 38px;
+    line-height: 52px;
+    letter-spacing: -0.95px;
+    width: 1194px;
     margin: 0 auto;
+    font-weight: bold;
+    padding-bottom: 22px;
   }
-`;
 
-const SectionSupply = styled.div`
-  width: 1194px;
-  margin: 0 auto;
-  padding: 103px 0 150px 0;
-`;
-
-const SectionService = styled.div`
-  width: 100%;
-  background-color: #f8f8f8;
-  padding: 116px 0 156px 0;
-
-  .company_map {
+  .process {
     display: block;
     margin: 0 auto;
+    padding-bottom: 60px;
+  }
+
+  hr {
+    width: 1194px;
+    margin: 0 auto;
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border: 1px solid #e1e1e1;
+  }
+  .check_list {
+    width: 1194px;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 36px;
+    letter-spacing: -0.6px;
+  }
+
+  .check_list_txt {
+    width: 1194px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    font-size: 18px;
+    color: #5d5d5d;
+    line-height: 30px;
+    letter-spacing: -0.45px;
+  }
+  .recruit_info {
+    width: 227px;
+    height: 65px;
+    border-radius: 33px;
+    background-color: #434343;
+    color: #fff;
+    line-height: 65px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -597px;
+    font-size: 19px;
+    cursor: pointer;
   }
 `;
 
+const SectionBlog = styled.div`
+  width: 100%;
+  padding: 100px 0;
+
+  .bb_blog {
+    width: 1080px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 5px 0 30px 0 rgb(149 149 149 / 16%);
+    background-color: #ffdd6d;
+    margin: 0 auto;
+    position: relative;
+  }
+  .bb_blog > p {
+    padding: 55px 0 0 40px;
+    font-size: 34px;
+    line-height: 50px;
+    letter-spacing: -0.85px;
+    color: #222;
+    font-weight: bold;
+  }
+
+  .bb_blog > .btn_blog {
+    position: absolute;
+    left: 40px;
+    bottom: 30px;
+    width: 268px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #fff;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -0.55px;
+
+    border: none;
+  }
+`;
 export default RecruitPage;
